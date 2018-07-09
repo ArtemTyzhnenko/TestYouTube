@@ -1,7 +1,4 @@
 import { combineReducers } from 'redux';
+import youTube from './YouTube/reducerYouTube'
 
-const rootReducer = combineReducers({
-  state: (state = {}) => state
-});
-
-export default rootReducer;
+export default combineReducers({ youTube });
