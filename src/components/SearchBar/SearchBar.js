@@ -10,11 +10,13 @@ class SearchBar extends Component{
 
     render(){
         return(
-            <input
-                type="text"
-                value={this.state.term}
-                onChange={this.handleInput}
-            />
+            <div className="col-md-12 search-bar">
+                <input
+                    type="text"
+                    value={this.state.term}
+                    onChange={this.handleInput}
+                />
+            </div>
         )
     };
 };

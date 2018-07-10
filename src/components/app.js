@@ -4,6 +4,8 @@ import VideoDetails from './VideoDetail/VideoDetail';
 import VideoList from './VideoList/VideoList';
 import YTSearch from 'youtube-api-search';
 
+import './App.scss';
+
 const API_KEY = 'AIzaSyDPFqy074OeOEfOV0AThPGeNo7pjTNFrMc';
 
 export default class App extends Component {
@@ -36,7 +38,6 @@ export default class App extends Component {
                     handleVideoSelect={this.handleVideoSelect}
                     videos={this.state.videos}
                 />
-
             </Fragment>
         );
     };

@@ -11,8 +11,8 @@ const VideoList = ({ videos, handleVideoSelect }) =>{
            />)
     });
     return(
-        <div>
-            <ul className="col-md-4 list-group">
+        <div className="video-list col-md-4">
+            <ul className="list-group">
                 { videoItems }
             </ul>
         </div>
