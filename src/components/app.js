@@ -19,8 +19,10 @@ export default class App extends Component {
         return (
             <Fragment>
                 <SearchBar/>
+                <VideoList
+                    videos={this.state.videos}
+                />
                 <VideoDetails/>
-                <VideoList/>
             </Fragment>
         );
     };
