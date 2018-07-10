@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {Component, Fragment} from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import VideoDetails from './VideoDetail/VideoDetail';
@@ -15,7 +16,11 @@ export default class App extends Component {
     };
 
     componentDidMount() {
-        YTSearch({ key: API_KEY, term: 'surfboards'}, (videos) => {
+        this.videoSearch('surfboards')
+    };
+
+    videoSearch = (term) => {
+        YTSearch({ key: API_KEY, term: term}, (videos) => {
             this.setState({
                 videos: videos,
                 selectedVideo: videos[0],
@@ -24,13 +29,19 @@ export default class App extends Component {
     };
 
     handleVideoSelect = (selectedVideo) => {
-        this.setState({selectedVideo})
+        this.setState({ selectedVideo })
     };
 
+
     render() {
+
+        const videoSearch = _.debounce( (term) => { this.videoSearch(term) }, 500);
+
         return (
             <Fragment>
-                <SearchBar/>
+                <SearchBar
+                    handleSearchingInput={ videoSearch }
+                />
                 <VideoDetails
                     video={this.state.selectedVideo}
                 />
